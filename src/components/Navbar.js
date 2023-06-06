@@ -168,15 +168,14 @@ const Navbar = ({type})=>{
                             </Badge>
                         </MenuIconActive>
                         </TextScroll>}
-                    <WishListScroll show={itemFilterList.length}>
-                        <MenuIconActive to="/ProductList">
-                            <Badge badgeContent={itemFilterList.length} color="primary">
-                                <FavoriteIcon/>
-                            </Badge>
-                        </MenuIconActive>
-                    </WishListScroll>
-                    
-                    </>
+                        <WishListScroll show={itemFilterList.length}>
+                            <MenuIconActive to="/ProductList">
+                                <Badge badgeContent={itemFilterList.length} color="primary">
+                                    <FavoriteIcon/>
+                                </Badge>
+                            </MenuIconActive>
+                        </WishListScroll>
+                 </>
                 }
                 </Right>
             </Wrapper>

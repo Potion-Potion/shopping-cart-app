@@ -1,6 +1,6 @@
 // import { CollectionsBookmarkOutlined, ConstructionOutlined } from "@mui/icons-material";
 import React from "react";
-import {useContext,createContext,useState} from "react"
+import {useContext,createContext,useState,useEffect} from "react"
 // import { popularProducts } from "../data";
 // import reducer from "./reducer"
 
@@ -28,6 +28,7 @@ const CartProvider=({children})=>{
 
     const [showC,setshowC] = useState(false)
 
+    const [sum,setSum] = useState ()
 
 
 // -----------------------------------Item In Cart-------------------------------
@@ -113,19 +114,22 @@ const CartProvider=({children})=>{
     // }
 
 
-    //  useEffect (()=>{
-    //     if(itemIndex)
-    //     {
-    //         setItemWishList(itemIndex)
-    //     }
-    //  },[chooseImage],[currentItem]) 
+     useEffect (()=>{
+        const total = chooseCart.map(({price,quantity})=>{
+            return price*quantity
+        })
+        const totalPrice = total.reduce((before,current) =>
+             before+current , 0
+        )
+        setSum(totalPrice)
+     },[chooseCart]) 
 
     return(
         <CartContext.Provider value={{addToCart,chooseItem,setChooseCart
                                     ,toggleQuantity,chooseCart,itemWishlist,
                                     toggleWishList,itemFilterList,setItemFilterList
                                     ,addWishListCart,chooseCurrentItem,setShowCart,
-                                    showCart}}>
+                                    showCart,sum}}>
             {children}
         </CartContext.Provider>
     )

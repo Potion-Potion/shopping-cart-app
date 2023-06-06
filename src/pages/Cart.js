@@ -7,6 +7,7 @@ import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
 import {Link} from "react-router-dom";
 import {MyCartContext} from "../components/Context";
+import { useState } from "react";
 
 const Container = styled.div``
 
@@ -206,7 +207,10 @@ const SummaryButton = styled.button`
 const Cart = () => {
     const {chooseCart,toggleQuantity,
         setChooseCart,setItemFilterList,
-        itemFilterList,itemWishlist} = MyCartContext()
+        itemFilterList,itemWishlist,sum} = MyCartContext()
+    
+        // const [bb, ll] = useState({})
+        
     return (
         <Container>
             <Navbar/>
@@ -233,7 +237,8 @@ const Cart = () => {
                         <DeleteButton onClick={()=>{setChooseCart([])}}>CLEAR ALL</DeleteButton>
                     </DeleteBox>                     
                         {chooseCart.map((item, index)=>{
-                                return(
+
+                            return(
                                     <>
                                     <Product key={index}>
                                         <ProductDetail>
@@ -270,7 +275,7 @@ const Cart = () => {
                         <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>Subtotal</SummaryItemText>
-                            <SummaryItemPrice>$ 80</SummaryItemPrice>
+                            <SummaryItemPrice>$ {sum}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -282,7 +287,7 @@ const Cart = () => {
                         </SummaryItem>
                         <SummaryItem type="total">
                             <SummaryItemText >Total</SummaryItemText>
-                            <SummaryItemPrice>$ 80</SummaryItemPrice>
+                            <SummaryItemPrice>$ {sum-5.90}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryButton>CHECKOUT</SummaryButton>
                     </Summary>
