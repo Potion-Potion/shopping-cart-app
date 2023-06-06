@@ -54,6 +54,7 @@ cursor: pointer;
 padding-right: 40px;
 margin: 0 5px;
 color: black;
+&:hover{ color: blue;}
 `
 const Bottom = styled.div`
     display: flex;
@@ -233,6 +234,7 @@ const Cart = () => {
                     </DeleteBox>                     
                         {chooseCart.map((item, index)=>{
                                 return(
+                                    <>
                                     <Product key={index}>
                                         <ProductDetail>
                                             <Image src={item.image}/>
@@ -256,11 +258,12 @@ const Cart = () => {
                                                 </ProductMaxBG>
                                                 }
                                             </ProductAmountContainer>
-                                            <ProductPrice>$ {item.price}</ProductPrice>
+                                            <ProductPrice>$ {item.price*item.quantity}</ProductPrice>
                                         </PriceDetail>
                                     </Product>
-                        )})} 
-                        <Hr/>
+                                    <Hr/>
+                                    </>
+                        )})}{chooseCart.length === 0 && <Hr/>}
                         {chooseCart.length === 0 &&<Empty>There are no items in this cart</Empty>}
                     </Info>
                     <Summary>

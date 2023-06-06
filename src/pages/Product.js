@@ -87,23 +87,23 @@ const FilterSize = styled.select``
 const FilterSizeOption = styled.option``
 const AddContainer = styled.div`
     display: flex;
-    width: 30%;
+    width: 60%;
     // align-items: center;
     justify-content: space-between;
+    // gap: 50px;
 `
 const AmountContainer = styled.div`
     display: flex;
     position: relative;
     height: 100px;
-    // background-color: red;
     // align-items: center;
     font-weight: 700;
-    width: 50%;
+    // width: 400px;
     height 100px;
 `
 const Amount = styled.div`
     width: 30px;
-    height: 30px;
+    max-height: 30px;
     border-radius: 10px;
     border: 1px solid teal;
     display: flex;
@@ -136,6 +136,8 @@ const Product = () =>{
         <Container>
             <Navbar/>
             <Announcement/>
+
+                            <Amount>0</Amount>
             { itemWishlist.length > 0 ?
             itemWishlist.map((item) => 
             <Wrapper>
@@ -170,6 +172,7 @@ const Product = () =>{
                     </FilterContainer>
                     <AddContainer>
                             <AmountContainer>
+                            
                             {/* <div style={{backgroundColor: 'red'
                             ,display: 'flex',
                             height: "100%",
