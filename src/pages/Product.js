@@ -136,8 +136,6 @@ const Product = () =>{
         <Container>
             <Navbar/>
             <Announcement/>
-
-                            <Amount>0</Amount>
             { itemWishlist.length > 0 ?
             itemWishlist.map((item) => 
             <Wrapper>
@@ -171,44 +169,35 @@ const Product = () =>{
                         </Filter>
                     </FilterContainer>
                     <AddContainer>
-                            <AmountContainer>
-                            
-                            {/* <div style={{backgroundColor: 'red'
-                            ,display: 'flex',
-                            height: "100%",
-                            width: '100%'
-
-}}> */}
-                                    <Add onClick={()=>{
-                                            toggleWishList(item,"increment")  
-                                        }}
-                                        style={{cursor: "pointer"}}/>
-                                        {itemWishlist.length === 0
-                                        ? <Amount>0</Amount>
-                                        : <Amount>{item.quantity}</Amount>
-                                        }
-                                    <Remove onClick={()=>{
-                                        if (item) {
-                                            toggleWishList(item,"Decrement")
-                                        }
-                                    }} 
-                                    style={{cursor: "pointer"}}/>  
-                                    { item.quantity === 10 &&
-                                    <div style=
-                                    {{position: "absolute",
-                                    color: 'red',
-                                    top: "40px",
-                                    left: '32px'
-                                    }}>
-                                    Full
-                                    </div>
-                                    }
-                            {/* </div> */}
-                            </AmountContainer>
-                        <Link to="/Cart">
-                        <Button onClick={()=>{addWishListCart(item)}}>ADD TO CART</Button>
-                        </Link>
-                       
+                        <AmountContainer>
+                            <Add onClick={()=>{
+                                    toggleWishList(item,"increment")  
+                                }}
+                                style={{cursor: "pointer"}}/>
+                                {itemWishlist.length === 0
+                                ? <Amount>0</Amount>
+                                : <Amount>{item.quantity}</Amount>
+                                }
+                            <Remove onClick={()=>{
+                                if (item) {
+                                    toggleWishList(item,"Decrement")
+                                }
+                                }} 
+                                style={{cursor: "pointer"}}/>  
+                                { item.quantity === 10 &&
+                                <div style=
+                                {{position: "absolute",
+                                color: 'red',
+                                top: "40px",
+                                left: '32px'
+                                }}>
+                                Full
+                                </div>
+                                }
+                        </AmountContainer>
+                            <Link to="/Cart">
+                            <Button onClick={()=>{addWishListCart(item)}}>ADD TO CART</Button>
+                            </Link>
                     </AddContainer>
                 </InfoContainer>
                 </Wrapper>

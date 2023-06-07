@@ -6,10 +6,16 @@ import Products from '../components/Products';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import React from "react";
+import styled from "styled-components";
+
+const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+`
 
 const Home = ()=>{
     return(
-        <div>
+        <Overlay>
             <Announcement/>
             <Navbar type="Home"/>
             <Slider/>
@@ -17,7 +23,7 @@ const Home = ()=>{
             <Products/>
             <Newsletter/>
             <Footer/>
-        </div>
+        </Overlay>
     )
 }
 

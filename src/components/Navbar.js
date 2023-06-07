@@ -109,9 +109,8 @@ const TextScroll = styled.span`
 `
 
 const WishListScroll = styled.span`
-    
     position: fixed;
-    display: flex;
+    display: ${props => props.overlay === true ? 'none' : 'flex'};
     align-items: center;
     justify-content: center;
     top: 56%;
@@ -125,11 +124,14 @@ const WishListScroll = styled.span`
 
 const Navbar = ({type})=>{
 
-    const {chooseCart,itemFilterList,setShowCart,showCart} = MyCartContext()
+    const {chooseCart,itemFilterList,
+        setShowCart,showCart,
+        showOverlay
+    } = MyCartContext()
 
     const fnText = ()=>{
         if (chooseCart.length > 0){
-            if(window.scrollY >= 500)setShowCart(true)
+            if(window.scrollY >= 500) setShowCart(true)
             else setShowCart(false)
     }
         
@@ -168,7 +170,7 @@ const Navbar = ({type})=>{
                             </Badge>
                         </MenuIconActive>
                         </TextScroll>}
-                        <WishListScroll show={itemFilterList.length}>
+                        <WishListScroll show={itemFilterList.length} overlay={showOverlay}>
                             <MenuIconActive to="/ProductList">
                                 <Badge badgeContent={itemFilterList.length} color="primary">
                                     <FavoriteIcon/>

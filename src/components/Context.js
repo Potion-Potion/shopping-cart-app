@@ -26,9 +26,11 @@ const CartProvider=({children})=>{
 
     const [showCart,setShowCart] = useState(false)
 
-    const [showC,setshowC] = useState(false)
+    const [showOverlay,setShowOverlay] = useState(true)
 
     const [sum,setSum] = useState ()
+
+    const [checkItem,setCheckItem] = useState ("")
 
 
 // -----------------------------------Item In Cart-------------------------------
@@ -37,6 +39,8 @@ const CartProvider=({children})=>{
         // const newItem = popularProducts.find(item => item.id === product )
         // setChooseCart(chooseCart.concat(newItem));
         const exist = chooseCart.find((x) => x.id === product.id);
+        
+
         if (exist) {
             exist.quantity < 10 &&
             setChooseCart(
@@ -45,7 +49,9 @@ const CartProvider=({children})=>{
             ))
         }
         else {
-            setChooseCart([...chooseCart, {...product, quantity:1}])
+            setShowOverlay(!showOverlay);
+            setChooseCart([...chooseCart, {...product, quantity:1}]
+            )
         }
 
     }; 
@@ -64,6 +70,7 @@ const CartProvider=({children})=>{
     // --------------------------------- Shopping Bag ----------------------------------
     const chooseItem = (product) => {
         setItemWishList([product])
+
     }
 
     const addWishListCart = (item) => {
@@ -129,7 +136,8 @@ const CartProvider=({children})=>{
                                     ,toggleQuantity,chooseCart,itemWishlist,
                                     toggleWishList,itemFilterList,setItemFilterList
                                     ,addWishListCart,chooseCurrentItem,setShowCart,
-                                    showCart,sum}}>
+                                    showCart,sum,setShowOverlay,showOverlay,
+                                    setCheckItem,checkItem}}>
             {children}
         </CartContext.Provider>
     )
