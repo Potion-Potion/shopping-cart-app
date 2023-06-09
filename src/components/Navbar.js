@@ -162,6 +162,7 @@ const Navbar = ({type})=>{
                     </MenuIcon>
                     {type === "Home" && 
                  <>
+                    { chooseCart.length >= 1 && <>
                         { showCart === true &&
                         <TextScroll y={showCart} show={chooseCart.length}>
                         <MenuIconActive to="/Cart">
@@ -170,6 +171,8 @@ const Navbar = ({type})=>{
                             </Badge>
                         </MenuIconActive>
                         </TextScroll>}
+                        </>
+                    }
                         <WishListScroll show={itemFilterList.length} overlay={showOverlay}>
                             <MenuIconActive to="/ProductList">
                                 <Badge badgeContent={itemFilterList.length} color="primary">

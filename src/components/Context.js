@@ -26,22 +26,39 @@ const CartProvider=({children})=>{
 
     const [showCart,setShowCart] = useState(false)
 
-    const [showOverlay,setShowOverlay] = useState(true)
+    const [showOverlay,setShowOverlay] = useState(false)
 
     const [sum,setSum] = useState ()
 
     const [checkItem,setCheckItem] = useState ("")
 
+    const [loading,setLoading] = useState(false)
+
+// -----------------------------------timeLoading-------------------------------
+
+    const timeLoading = (item) =>{
+        setLoading(true);
+        setTimeout(()=>{
+        addWishListCart(item);
+        setShowOverlay(false);
+        setLoading(false);
+        setShowCart(true);
+        }, 200);
+}
 
 // -----------------------------------Item In Cart-------------------------------
 
     const addToCart = (product) => {
         // const newItem = popularProducts.find(item => item.id === product )
         // setChooseCart(chooseCart.concat(newItem));
-        const exist = chooseCart.find((x) => x.id === product.id);
-        
+    const exist = chooseCart.find((x) => x.id === product.id); 
+        setItemWishList([product])
 
-        if (exist) {
+        if(itemWishlist) {
+            setShowOverlay(true)
+            setShowCart(false)
+        }
+        else if (exist) {
             exist.quantity < 10 &&
             setChooseCart(
             chooseCart.map((x) => 
@@ -53,7 +70,7 @@ const CartProvider=({children})=>{
             setChooseCart([...chooseCart, {...product, quantity:1}]
             )
         }
-
+    
     }; 
     const toggleQuantity = (item,type)=>{
         if (type === "increment" && item.quantity < 10) {
@@ -69,13 +86,12 @@ const CartProvider=({children})=>{
     }
     // --------------------------------- Shopping Bag ----------------------------------
     const chooseItem = (product) => {
-        setItemWishList([product])
-
+        setItemWishList([product]);
     }
 
     const addWishListCart = (item) => {
         const existWishList = chooseCart.find((x) => x.id === item.id);
-
+        setItemWishList([])
         if (existWishList) {
             setChooseCart(
               chooseCart.map( (x) =>{
@@ -137,7 +153,7 @@ const CartProvider=({children})=>{
                                     toggleWishList,itemFilterList,setItemFilterList
                                     ,addWishListCart,chooseCurrentItem,setShowCart,
                                     showCart,sum,setShowOverlay,showOverlay,
-                                    setCheckItem,checkItem}}>
+                                    setCheckItem,checkItem,timeLoading,loading}}>
             {children}
         </CartContext.Provider>
     )

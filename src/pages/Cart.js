@@ -210,6 +210,8 @@ const Cart = () => {
         itemFilterList,itemWishlist,sum} = MyCartContext()
     
         // const [bb, ll] = useState({})
+    
+    const shipping = 5.90
         
     return (
         <Container>
@@ -279,15 +281,15 @@ const Cart = () => {
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Estimated Shipping</SummaryItemText>
-                            <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+                            <SummaryItemPrice>$ {sum ? shipping : 0}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Shipping Discount</SummaryItemText>
-                            <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+                            <SummaryItemPrice>$ {sum ? shipping : 0}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem type="total">
                             <SummaryItemText >Total</SummaryItemText>
-                            <SummaryItemPrice>$ {sum-5.90}</SummaryItemPrice>
+                            <SummaryItemPrice>$ {sum ? sum-shipping : 0}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryButton>CHECKOUT</SummaryButton>
                     </Summary>
