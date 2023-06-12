@@ -49,9 +49,11 @@ const CartProvider=({children})=>{
 // -----------------------------------Item In Cart-------------------------------
 
     const addToCart = (product) => {
+
         // const newItem = popularProducts.find(item => item.id === product )
         // setChooseCart(chooseCart.concat(newItem));
-    const exist = chooseCart.find((x) => x.id === product.id); 
+
+        const exist = chooseCart.find((x) => x.id === product.id); 
         setItemWishList([product])
 
         if(itemWishlist) {
@@ -85,6 +87,7 @@ const CartProvider=({children})=>{
            )}   
     }
     // --------------------------------- Shopping Bag ----------------------------------
+
     const chooseItem = (product) => {
         setItemWishList([product]);
     }
@@ -129,13 +132,6 @@ const CartProvider=({children})=>{
         else setItemFilterList([...itemFilterList,item])
     }
         
-    
-    // --------------------------------- Filter Products ----------------------------------
-
-    // const filterProduct = (e)=>{
-    //     console.log(e)
-    // }
-
 
      useEffect (()=>{
         const total = chooseCart.map(({price,quantity})=>{

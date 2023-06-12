@@ -6,10 +6,24 @@ import Cart from "./pages/Cart";
 import Product from "./pages/Product";
 import ProductList from "./pages/ProductList";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import styled from "styled-components";
 
+
+// const Overlay = styled.div`
+//   position: fixed;
+//   top:0;
+//   left: 0;
+ 
+//   width: 100%;
+//   height: 100%;
+//   z-index: 99;
+//   overflow: hidden;
+//   // background-color: red;
+// `
 
 function App () {
   return(
+    <>
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -20,6 +34,7 @@ function App () {
           <Route path="/ProductList" element={<ProductList/>}/>
         </Routes>
       </Router>
+      </>
         
       
   )

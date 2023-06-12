@@ -230,117 +230,117 @@ const Product = ({ product }) => {  // product คือรับ props มา�
     //         console.log(error);
     //     }
     // }
-    
+
 
 
     return (
         <Container show={showOverlay}>
             {showOverlay === true && itemWishlist.map((item) => (
-                <CheckContainer>
-                    <Close onClick={() => { setShowOverlay(!showOverlay); }}>
-                        X
-                    </Close>
-                    <CheckCart>
-                        {loading === true ?
-                        <Oval
-                            height={150}
-                            width={150}
-                            color="#4fa94d"
-                            wrapperStyle={{}}
-                            wrapperClass=""
-                            visible={true}
-                            ariaLabel='oval-loading'
-                            secondaryColor="#4fa94d"
-                            strokeWidth={2}
-                            strokeWidthSecondary={2}
-                        /> :
-                        
-                        loading ===  false &&
-                            <CheckWrap>
-                                <CheckInfoCon style={{ marginBottom: '20px' }}>
-                                    <CheckImage src={item.image} />
-                                    <CheckInfo>
-                                        <CheckTitle>
-                                            Fashion Sneaker
-                                        </CheckTitle>
-                                        <CheckDesc>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua.
-                                            Ut enim ad minim veniam, quis nostrud
-                                        </CheckDesc>
-                                        <CheckDesc>
-                                            $ {item.price}.00
-                                        </CheckDesc>
-                                    </CheckInfo>
-                                </CheckInfoCon>
-                                <Hr />
-                                <CheckInfoCon>
-                                    <CheckInfo flex={"flex"} style={{ padding: '20px' }}>
-                                        <AmountContainer>
-                                            <Add onClick={() => {
-                                                toggleWishList(item, "increment")
-                                            }}
-                                                style={{
-                                                    cursor: "pointer",
-                                                    backgroundColor: "black",
-                                                    color: 'white',
-                                                    borderRadius: "20px",
-                                                    padding: '3px'
-                                                }} />
-                                            {itemWishlist.length === 0
-                                                ? <Amount>0</Amount>
-                                                : <Amount>{item.quantity}</Amount>
-                                            }
-                                            <Remove onClick={() => {
-                                                if (itemWishlist) {
-                                                    toggleWishList(item, "Decrement")
-                                                }
-                                            }}
-                                                style={{
-                                                    cursor: "pointer",
-                                                    backgroundColor: "black",
-                                                    color: 'white',
-                                                    borderRadius: "20px",
-                                                    padding: '3px'
-                                                }} />
-                                            <>
-                                                {item.quantity === 10 &&
-                                                    <div style=
-                                                        {{
-                                                            position: "absolute",
-                                                            color: 'red',
-                                                            top: "40px",
-                                                            left: '47px'
-                                                        }}>
-                                                        Full
-                                                    </div>
-                                                }
-                                            </>
-                                        </AmountContainer>
-                                    </CheckInfo>
-                                    <CheckInfo style={{ padding: '20px' }}>
-                                        <CheckDesc style={{ fontSize: '20px' }}>{<h4 style={{ color: 'red' }}>{item.quantity}</h4>} items in Your Cart</CheckDesc>
-                                        <CheckDesc style={{ fontSize: '20px' }}>
-                                            subtotal: $
-                                            <h4 style={{ color: 'red' }}>{item.quantity * item.price}</h4>
-                                        </CheckDesc>
-                                    </CheckInfo>
-                                </CheckInfoCon>
-                                {/* <Link to="/Cart">
-                                </Link> */}
-                                    <CheckBtn color={'green'} onClick={() => {
-                                        timeLoading(item);
-                                    }}>
-                                        CONFIRM & ADD ITEMS TO CART
-                                    </CheckBtn>
-                                <CheckBtn color={'black'} style={{ marginTop: '20px' }}
-                                    onClick={() => { setShowOverlay(!showOverlay); }}>
-                                    CONTINUE SHOPPING
-                                </CheckBtn>
-                            </CheckWrap> } 
-                    </CheckCart>
-                </CheckContainer>
-            ))}
+        <CheckContainer>
+            <Close onClick={() => { setShowOverlay(!showOverlay); }}>
+                X
+            </Close>
+            <CheckCart>
+                {loading === true ?
+                <Oval
+                    height={150}
+                    width={150}
+                    color="#4fa94d"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                    ariaLabel='oval-loading'
+                    secondaryColor="#4fa94d"
+                    strokeWidth={2}
+                    strokeWidthSecondary={2}
+                /> :
+                
+                loading ===  false &&
+                    <CheckWrap>
+                        <CheckInfoCon style={{ marginBottom: '20px' }}>
+                            <CheckImage src={item.image} />
+                            <CheckInfo>
+                                <CheckTitle>
+                                    Fashion Sneaker
+                                </CheckTitle>
+                                <CheckDesc>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud
+                                </CheckDesc>
+                                <CheckDesc>
+                                    $ {item.price}.00
+                                </CheckDesc>
+                            </CheckInfo>
+                        </CheckInfoCon>
+                        <Hr />
+                        <CheckInfoCon>
+                            <CheckInfo flex={"flex"} style={{ padding: '20px' }}>
+                                <AmountContainer>
+                                    <Add onClick={() => {
+                                        toggleWishList(item, "increment")
+                                    }}
+                                        style={{
+                                            cursor: "pointer",
+                                            backgroundColor: "black",
+                                            color: 'white',
+                                            borderRadius: "20px",
+                                            padding: '3px'
+                                        }} />
+                                    {itemWishlist.length === 0
+                                        ? <Amount>0</Amount>
+                                        : <Amount>{item.quantity}</Amount>
+                                    }
+                                    <Remove onClick={() => {
+                                        if (itemWishlist) {
+                                            toggleWishList(item, "Decrement")
+                                        }
+                                    }}
+                                        style={{
+                                            cursor: "pointer",
+                                            backgroundColor: "black",
+                                            color: 'white',
+                                            borderRadius: "20px",
+                                            padding: '3px'
+                                        }} />
+                                    <>
+                                        {item.quantity === 10 &&
+                                            <div style=
+                                                {{
+                                                    position: "absolute",
+                                                    color: 'red',
+                                                    top: "40px",
+                                                    left: '47px'
+                                                }}>
+                                                Full
+                                            </div>
+                                        }
+                                    </>
+                                </AmountContainer>
+                            </CheckInfo>
+                            <CheckInfo style={{ padding: '20px' }}>
+                                <CheckDesc style={{ fontSize: '20px' }}>{<h4 style={{ color: 'red' }}>{item.quantity}</h4>} items in Your Cart</CheckDesc>
+                                <CheckDesc style={{ fontSize: '20px' }}>
+                                    subtotal: $
+                                    <h4 style={{ color: 'red' }}>{item.quantity * item.price}</h4>
+                                </CheckDesc>
+                            </CheckInfo>
+                        </CheckInfoCon>
+                        {/* <Link to="/Cart">
+                        </Link> */}
+                            <CheckBtn color={'green'} onClick={() => {
+                                timeLoading(item);
+                            }}>
+                                CONFIRM & ADD ITEMS TO CART
+                            </CheckBtn>
+                        <CheckBtn color={'black'} style={{ marginTop: '20px' }}
+                            onClick={() => { setShowOverlay(!showOverlay); }}>
+                            CONTINUE SHOPPING
+                        </CheckBtn>
+                    </CheckWrap> } 
+            </CheckCart>
+        </CheckContainer>
+    ))}
             <Circle />
             <Image src={product.image} />
             {showOverlay === false &&
