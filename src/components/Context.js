@@ -43,7 +43,7 @@ const CartProvider=({children})=>{
         setShowOverlay(false);
         setLoading(false);
         setShowCart(true);
-        }, 200);
+        }, 1000);
 }
 
 // -----------------------------------Item In Cart-------------------------------
@@ -145,7 +145,7 @@ const CartProvider=({children})=>{
              before+current , 0
         )
         setSum(totalPrice)
-     },[chooseCart]) 
+     },[chooseCart])  
 
     return(
         <CartContext.Provider value={{addToCart,chooseItem,setChooseCart

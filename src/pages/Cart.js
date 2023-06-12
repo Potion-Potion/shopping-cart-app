@@ -7,7 +7,6 @@ import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
 import {Link} from "react-router-dom";
 import {MyCartContext} from "../components/Context";
-import { useState } from "react";
 
 const Container = styled.div``
 
@@ -208,10 +207,8 @@ const Cart = () => {
     const {chooseCart,toggleQuantity,
         setChooseCart,setItemFilterList,
         itemFilterList,itemWishlist,sum} = MyCartContext()
-    
-        // const [bb, ll] = useState({})
-    
-    const shipping = 5.90
+        
+    const shipping = 5.90;
         
     return (
         <Container>
