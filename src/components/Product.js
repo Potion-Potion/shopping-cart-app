@@ -9,6 +9,7 @@ import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
 import { Oval } from 'react-loader-spinner'
 
+
 const Info = styled.div`
     opacity: 0;
     width: 100%;
@@ -205,6 +206,8 @@ const Amount = styled.div`
 
 
 
+
+
 const Product = ({ product }) => {  // product คือรับ props มาจาก products 
 
     const { addToCart, chooseItem,
@@ -234,7 +237,11 @@ const Product = ({ product }) => {  // product คือรับ props มา�
 
 
     return (
+
+
+         
         <Container show={showOverlay}>
+            
             {showOverlay === true && itemWishlist.map((item) => (
         <CheckContainer>
             <Close onClick={() => { setShowOverlay(!showOverlay); }}>
@@ -341,6 +348,7 @@ const Product = ({ product }) => {  // product คือรับ props มา�
             </CheckCart>
         </CheckContainer>
     ))}
+         
             <Circle />
             <Image src={product.image} />
             {showOverlay === false &&

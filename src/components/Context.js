@@ -60,17 +60,26 @@ const CartProvider=({children})=>{
             setShowOverlay(true)
             setShowCart(false)
         }
-        else if (exist) {
-            exist.quantity < 10 &&
-            setChooseCart(
-            chooseCart.map((x) => 
-            x.id === product.id ? {...x, quantity: x.quantity + 1} : x
-            ))
-        }
         else {
             setShowOverlay(!showOverlay);
             setChooseCart([...chooseCart, {...product, quantity:1}]
             )
+        }
+
+        if (exist) {
+            exist.quantity < 10 &&
+            setChooseCart(
+            chooseCart.map((x) => 
+            // {
+            //     if(x.id === product.id) {
+            //        return {...x, quantity: x.quantity + 5}
+            //     }
+            //     else{
+            //         return x
+            //     }
+            // }
+            x.id === product.id ? {...x, quantity: x.quantity + 5} : x
+        ))
         }
     
     }; 
